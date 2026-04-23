@@ -7,8 +7,11 @@ function App() {
   return (
     <HashRouter>
       <nav>
-        <NavLink to="/">Home</NavLink> | 
-        <NavLink to="/projects">Projects</NavLink>
+        <span className="nav-logo">Sudhiksha</span>
+        <div className="nav-links">
+          <NavLink to="/">Home</NavLink>
+          <NavLink to="/projects">Projects</NavLink>
+        </div>
       </nav>
 
       <Routes>

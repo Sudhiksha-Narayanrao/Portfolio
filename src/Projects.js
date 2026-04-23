@@ -2,21 +2,22 @@ const projects = [
   {
     name: "Project One",
     desc: "Brief description of what this project does",
-    url: "https://github.com/Sudhiksha-Narayanrao/ScreenBrain"
+    url: "https://github.com/your-username/project1"
   },
   {
     name: "Project Two",
     desc: "Brief description of what this project does",
-    url: "https://github.com/Sudhiksha-Narayanrao/online-course-recommender-nn"
+    url: "https://github.com/your-username/project2"
   },
 ];
 
 function Projects() {
   return (
     <div>
-      <div className="hero" style={{ minHeight: '35vh' }}>
+      <div className="projects-hero">
         <p className="hero-label">Work</p>
         <h1><em>Projects</em></h1>
+        <p>A selection of projects I've built — from ML models to web applications.</p>
       </div>
 
       <div className="section-header">
@@ -24,7 +25,7 @@ function Projects() {
         <div className="section-line"></div>
       </div>
 
-      <div className="projects-list">
+      <div className="projects-grid">
         {projects.map((p, i) => (
           <a key={i} href={p.url} target="_blank" rel="noreferrer" className="project-item">
             <div>
