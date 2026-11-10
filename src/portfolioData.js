@@ -51,7 +51,6 @@ export const folders = [
           <li>Practical QGIS and GEE for Spatial Data Analysis – Dr. Minerva Singh.</li>
           <li>Quadcopter Drone and UAV Workshop – World Technocon, BITS Pilani Hyderabad.</li>
         </ul>
-        <p className="popup-note">Additional verified certificates can be added here later.</p>
       </>
     )
   },
@@ -155,7 +154,7 @@ export const projects = [
     technologies: ['Python', 'RAG', 'Qdrant', 'BM25', 'NLP'],
     description: 'Developing a RAG-based scientific document search system using hybrid BM25 and semantic retrieval, Qdrant vector search, source citations and provenance tracking.',
     date: 'October 2026 – Present',
-    url: ''
+    url: 'https://github.com/Sudhiksha-Narayanrao/LAM_RAGproject'
   },
   {
     id: 'project-02',
@@ -165,7 +164,7 @@ export const projects = [
     technologies: ['React', 'Spring Boot', 'PostgreSQL'],
     description: 'Developed a 3-tier registration platform with priority-based seat allocation, preference management and timetable conflict detection.',
     date: 'February – May 2026',
-    url: ''
+    url: 'https://github.com/Sudhiksha-Narayanrao/SERS-Software-Project'
   },
   {
     id: 'project-03',
@@ -175,7 +174,7 @@ export const projects = [
     technologies: ['React', 'Vite', 'React Router', 'Supabase', 'PostgreSQL', 'Tailwind CSS'],
     description: 'Built a responsive job platform with advanced filtering, saved jobs, application tracking and company profiles using reusable components, Context API and custom hooks.',
     date: 'November 2025',
-    url: ''
+    url: 'https://github.com/Sudhiksha-Narayanrao/HireSync'
   },
   {
     id: 'project-04',
@@ -185,6 +184,6 @@ export const projects = [
     technologies: ['Python', 'PyTorch', 'Torchvision', 'NumPy'],
     description: 'Implemented a second-order Telegraph Diffusion framework with damping, extending first-order TNRD models for denoising images corrupted by Poisson noise.',
     date: 'April – May 2026',
-    url: ''
+    url: 'https://github.com/Sanku-ctrl/SecondOrder-Poisson-Denoising'
   }
 ];

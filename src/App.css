@@ -47,10 +47,8 @@ button, a { font: inherit; }
 .folder-entry:hover .illustrated-icon, .bottom-dock button:hover .illustrated-icon, .bottom-dock a:hover .illustrated-icon { transform: translateY(-2px) rotate(-2deg); }
 .illustrated-icon { width: 48px; height: 48px; overflow: visible; filter: drop-shadow(2px 3px 0 rgba(101, 116, 100, .45)); transition: transform .18s ease; }
 .illustrated-icon path, .illustrated-icon rect, .illustrated-icon circle { stroke: #443d38; stroke-width: 1.8; stroke-linejoin: round; stroke-linecap: round; }
-.folder-shape { width: 37px; height: 25px; border: 1px solid var(--brown); background: #e7d8bd; border-radius: 2px; position: relative; display: block; box-shadow: 2px 2px 0 rgba(117, 133, 119, .55); }
-.folder-shape span { position: absolute; width: 19px; height: 6px; top: -6px; left: 3px; border: 1px solid var(--brown); border-bottom: 0; background: #e7d8bd; border-radius: 2px 2px 0 0; }
-.desktop-main { flex: 1; min-width: 0; padding: 18px 38px 50px 18px; }
-.desktop-heading { color: rgba(113, 127, 105, .13); font-family: 'DM Mono', monospace; font-size: clamp(42px, 6vw, 78px); letter-spacing: 8px; line-height: 1; text-align: center; position: absolute; left: 250px; right: 45%; top: 72px; pointer-events: none; }
+.desktop-main { position: relative; flex: 1; min-width: 0; padding: 18px 38px 50px 18px; }
+.desktop-heading { color: rgba(113, 127, 105, .13); font-family: 'DM Mono', monospace; font-size: clamp(42px, 6vw, 78px); letter-spacing: 8px; line-height: 1; text-align: center; position: absolute; left: 18px; right: 38px; top: 18px; pointer-events: none; }
 .content-columns { display: grid; grid-template-columns: minmax(400px, 1fr) minmax(390px, .92fr); gap: 36px; max-width: 1180px; margin: 112px auto 0; }
 .left-column { min-width: 0; display: flex; flex-direction: column; gap: 18px; }
 .projects-column { min-width: 0; }
@@ -95,6 +93,23 @@ button, a { font: inherit; }
 .project-date { margin: 0; color: #9b8068; font: 11px 'DM Mono', monospace; }
 .project-link { display: inline-block; margin-top: 12px; color: var(--sage-dark); font-size: 11px; font-weight: 700; text-decoration: none; }
 
+.cv-window { margin-bottom: 24px; }
+.cv-window-content { display: flex; align-items: center; gap: 14px; }
+.cv-document-icon { width: 48px; height: 55px; flex: 0 0 48px; overflow: visible; filter: drop-shadow(2px 3px 0 rgba(101, 116, 100, .35)); }
+.cv-document-shadow { fill: var(--sage); opacity: .8; }
+.cv-document-paper { fill: #fff5d5; stroke: var(--sage-dark); stroke-width: 1.5; stroke-linejoin: round; }
+.cv-document-fold { fill: #eadfbf; stroke: var(--sage-dark); stroke-width: 1.5; stroke-linejoin: round; }
+.cv-document-label { fill: #c8795d; stroke: #9c5e4d; stroke-width: 1; }
+.cv-document-label-text { fill: #fff5d5; font: 700 7px 'DM Mono', monospace; }
+.cv-document-lines { fill: none; stroke: #b7ad8e; stroke-width: 1.5; stroke-linecap: round; }
+.cv-window h2 { margin: 0 0 4px; color: var(--brown); font: 18px 'Libre Baskerville', serif; }
+.cv-window p { margin: 0 0 10px; font-size: 11px; }
+.cv-window-actions { display: flex; flex-wrap: wrap; gap: 6px; }
+.cv-button { padding: 5px 8px; border: 1px solid var(--brown); border-radius: 3px; color: var(--brown); background: #c9c6ae; font: 700 10px 'DM Mono', monospace; text-decoration: none; }
+.cv-button:hover { color: #fffce9; background: var(--sage-dark); }
+.email-popup .window-body { padding: 18px; }
+.email-address { margin: 0 0 12px; color: var(--brown); font: 14px 'DM Mono', monospace; overflow-wrap: anywhere; }
+
 .popup-overlay { position: fixed; inset: 49px 0 0; z-index: 5; background: rgba(73, 82, 66, .18); display: grid; place-items: center; padding: 24px; }
 .popup-window { width: min(520px, 100%); max-height: calc(100vh - 100px); overflow: auto; }
 .popup-window--opening { animation: popup-in .2s ease-out both; }
@@ -115,8 +130,6 @@ button, a { font: inherit; }
 .bottom-dock { position: fixed; z-index: 4; left: 50%; bottom: 14px; transform: translateX(-50%); display: flex; align-items: flex-end; gap: 8px; padding: 8px 12px; border: 1px solid rgba(117, 133, 119, .55); border-radius: 12px; background: rgba(255, 249, 228, .9); box-shadow: 4px 4px 0 var(--shadow); backdrop-filter: blur(4px); }
 .bottom-dock button, .bottom-dock a { border: 0; background: transparent; color: var(--brown); text-decoration: none; cursor: pointer; display: flex; flex-direction: column; align-items: center; gap: 2px; padding: 2px 6px; font-size: 9px; }
 .bottom-dock .illustrated-icon { width: 35px; height: 35px; filter: drop-shadow(1px 2px 0 rgba(101, 116, 100, .4)); }
-.dock-avatar { width: 35px; height: 35px; border: 2px solid #d5cfb6; border-radius: 50%; object-fit: cover; filter: drop-shadow(1px 2px 0 rgba(101, 116, 100, .4)); transition: transform .18s ease; }
-.bottom-dock button:hover .dock-avatar { transform: translateY(-2px); }
 
 @keyframes popup-in { from { opacity: 0; transform: translateY(8px) scale(.98); } to { opacity: 1; transform: translateY(0) scale(1); } }
 
@@ -124,7 +137,7 @@ button, a { font: inherit; }
   .folder-sidebar { width: 92px; flex-basis: 92px; padding-left: 8px; padding-right: 8px; }
   .desktop-main { padding-right: 22px; }
   .content-columns { grid-template-columns: 1fr; max-width: 700px; margin-top: 90px; }
-  .desktop-heading { left: 120px; right: 0; top: 70px; }
+  .desktop-heading { left: 18px; right: 22px; top: 18px; }
   .projects-column { order: 2; }
 }
 
@@ -137,6 +150,7 @@ button, a { font: inherit; }
   .desktop-heading { position: static; font-size: 35px; letter-spacing: 4px; text-align: left; margin: 8px 0 20px; }
   .content-columns { margin-top: 0; display: block; }
   .projects-column { margin-top: 30px; }
+  .cv-window { margin-bottom: 24px; }
   .profile-window .window-body { flex-direction: column; align-items: center; text-align: center; padding: 25px 18px; }
   .profile-photo { width: 125px; height: 125px; flex-basis: 125px; }
   .profile-role { letter-spacing: 2px; }
@@ -144,7 +158,6 @@ button, a { font: inherit; }
   .bottom-dock { bottom: 8px; max-width: calc(100vw - 18px); gap: 1px; padding: 6px 4px; }
   .bottom-dock button, .bottom-dock a { padding: 2px 4px; }
   .bottom-dock .illustrated-icon { width: 30px; height: 30px; }
-  .dock-avatar { width: 30px; height: 30px; }
   .popup-overlay { padding: 12px; }
   .hobby-grid { grid-template-columns: repeat(2, 1fr); }
 }
